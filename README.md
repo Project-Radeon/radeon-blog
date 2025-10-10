@@ -38,3 +38,11 @@ Recreation of the ROBLOX Blog from 2012 with **Astro + Prisma + Minio**
     HOST=192.168.1.130 PORT=2456 node ./dist/server/entry.mjs
     ```
 *Follow the same instructions but on Step 3 use `npm run dev` if you're trying to make changes to the blog.*
+
+# Creating an account
+Account creation is not implemented in the UI. You'll need to create accounts directly using a database client.
+
+1. Create a new user record with default values
+2. Set your desired username
+3. Generate a bcrypt password hash using [this tool](https://bcrypt-generator.com/)
+4. Insert the hash as the password field
