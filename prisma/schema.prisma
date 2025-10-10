@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
 
@@ -12,7 +12,7 @@ model User {
   username String    @unique
   password String
 
-  pfp      String   @default("default.png")
+  pfp      String   @default("DefaultProfileImage")
   bio      String?  @default("Blog Poster")
 
   posts    Post[]

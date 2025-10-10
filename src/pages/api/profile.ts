@@ -1,6 +1,6 @@
 import { validateSession } from "@lib/auth/session";
 import { prisma } from "@lib/prisma";
-import { deleteProfilePicture, uploadProfilePicture } from "@lib/r2";
+import { deleteProfilePicture, uploadProfilePicture } from "@lib/minio";
 import type { APIContext } from "astro";
 
 export async function POST({ request, cookies, redirect }: APIContext) {

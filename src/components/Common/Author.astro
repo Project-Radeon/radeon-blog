@@ -13,7 +13,7 @@ const { user, linkAuthor } = Astro.props;
   <div id="author-avatar">
     <img
       alt=""
-      src={`${import.meta.env.PUBLIC_CDN_URL}/images/pfp/${user.pfp}`}
+      src={`${import.meta.env.PUBLIC_IMG_URL}/${user.pfp}?width=74&height=74`}
       class="avatar photo"
       width="68"
       height="68"

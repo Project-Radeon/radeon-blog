@@ -52,7 +52,7 @@
       
             <div id="author-info">
               <div id="author-avatar">
-                <img alt="" src={`${import.meta.env.PUBLIC_CDN_URL}/images/pfp/${post.author.pfp}`} class="avatar photo" width="68" height="68">
+                <img alt="" src={`${import.meta.env.PUBLIC_IMG_URL}/${post.author.pfp}`} class="avatar photo" width="68" height="68">
               </div>
               <div id="author-description">
                 <h2>About {post.author.username}</h2>

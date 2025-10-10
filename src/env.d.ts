@@ -7,11 +7,11 @@ declare namespace App {
   }
 
 interface ImportMetaEnv {
-  readonly R2_ACCOUNTID: string;
-  readonly R2_ACCESS_KEY_ID: string;
-  readonly R2_SECRET_ACCESS_KEY: string;
-  readonly R2_BUCKET_NAME: string;
-  readonly PUBLIC_CDN_URL: string;
+  readonly MINIO_SERVER: string;
+  readonly MINIO_ACCESS_KEY: string;
+  readonly MINIO_SECRET_KEY: string;
+  readonly MINIO_BUCKET_NAME: string;
+  readonly PUBLIC_IMG_URL: string;
   readonly PUBLIC_WEBSITE_URL: string;
   readonly PUBLIC_WIKI_URL: string?;
 }
