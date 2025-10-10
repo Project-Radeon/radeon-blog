@@ -18,6 +18,7 @@ export async function GET({ cookies, redirect }: APIContext) {
   const formattedPosts = posts.map(post => ({
     title: post.title,
     link: `${siteUrl}${getPostUrl(post)}`,
+    pubDate: post.dateCreated
   }));
 
   return new Response(JSON.stringify(formattedPosts), {
