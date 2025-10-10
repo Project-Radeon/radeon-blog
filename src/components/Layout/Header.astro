@@ -1,18 +1,16 @@
 ---
 import { capitalizeDomainPrefix } from "@utils/url";
-
-const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
 ---
 
 <header id="branding" role="banner">
     <a href="/">
-        <img src={adjustDisplayDates ? "/images/header_04.png" : "/images/header_05.png"} alt="" width="900" height="108">
+        <img src="/images/header_05.png" alt="" width="900" height="108">
     </a>
 
     <hgroup>
         <h1 id="site-title">
-            <span><a href="/" title="Roblox Blog" rel="home">Roblox Blog</a></span>
+            <span><a href="/" title="Radeon Blog" rel="home">Radeon Blog</a></span>
         </h1>
-        <h2 id="site-description">Free Games at {adjustDisplayDates ? "ROBLOX.com" : capitalizeDomainPrefix(import.meta.env.PUBLIC_WEBSITE_URL)}</h2>
+        <h2 id="site-description">Free Games at {capitalizeDomainPrefix(import.meta.env.PUBLIC_WEBSITE_URL)}</h2>
     </hgroup>
 </header>

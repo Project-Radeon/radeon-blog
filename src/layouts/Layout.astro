@@ -16,8 +16,6 @@ interface Props {
 }
 
 const { title = "Roblox Blog", type = "blog", openGraph } = Astro.props;
-
-const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
 ---
 
 <!doctype html>
@@ -46,7 +44,7 @@ const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
 			<div class="menu-utilities-container">
 				<ul id="menu-utilities" class="menu">
 					<li id="menu-item-6508" class="active menu-item menu-item-type-custom menu-item-object-custom menu-item-6508">
-						<a href={`http://${import.meta.env.PUBLIC_WEBSITE_URL}`}>{adjustDisplayDates ? "ROBLOX.com" : capitalizeDomainPrefix(import.meta.env.PUBLIC_WEBSITE_URL)}</a>
+						<a href={`http://${import.meta.env.PUBLIC_WEBSITE_URL}`}>{capitalizeDomainPrefix(import.meta.env.PUBLIC_WEBSITE_URL)}</a>
 					</li>
 					<li id="menu-item-7056" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-7056">
 						<a href="/">Blog</a>

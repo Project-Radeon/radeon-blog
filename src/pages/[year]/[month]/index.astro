@@ -6,12 +6,9 @@ import Pagination from "@components/Common/Pagination.astro";
 
 import { getPosts } from "@lib/services/posts";
 
-import { getAdjustedYear } from "@utils/date";
-
 const pageNumber = Math.max(1, Number(Astro.url.searchParams.get("paged")) || 1);
 
 const { year, month } = Astro.params;
-const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
 
 const yearNum = Number(year);
 const monthNum = Number(month);
@@ -29,7 +26,7 @@ if (date.getFullYear() !== yearNum || date.getMonth() !== monthNum - 1) {
 }
 
 const formattedMonth = date.toLocaleString("default", { month: "long" });
-const formattedYear = getAdjustedYear(date, adjustDisplayDates);
+const formattedYear = date.getFullYear();
 
 const { posts, pageCount } = await getPosts({ page: pageNumber, date: { year: yearNum, month: monthNum } });
 ---

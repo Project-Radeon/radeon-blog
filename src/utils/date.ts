@@ -1,20 +1,9 @@
 export function formatDateWithOrdinal(
-  date: Date,
-  accurateDates: Boolean = false
+  date: Date
 ): string {
   let day = date.getDate();
   let month = date.toLocaleString("default", { month: "long" });
   let year = date.getFullYear();
-
-  if (accurateDates) {
-    if (
-      year < 2025 || (year === 2025 && (date.getMonth() < 2 ))
-    ) {
-      year -= 14;
-    } else {
-      year -= 13;
-    }
-  }
 
   let daySuffix = "th";
   if (day === 1 || day === 21 || day === 31) {
@@ -35,8 +24,7 @@ interface MonthYear {
 }
 
 export function getMonthYears(
-  startDate?: Date,
-  accurateDates: Boolean = false
+  startDate?: Date
 ): Array<MonthYear> {
   const monthYears: Array<MonthYear> = [];
 
@@ -55,18 +43,6 @@ export function getMonthYears(
     const month = current.getMonth() + 1;
 
     let formattedYear = year;
-    if (accurateDates) {
-      if (
-        year < 2025 ||
-        (year === 2025 &&
-          (current.getMonth() < 1 ||
-            (current.getMonth() === 1 && current.getDate() < 28)))
-      ) {
-        formattedYear -= 14;
-      } else {
-        formattedYear -= 13;
-      }
-    }
 
     monthYears.push({
       year: year.toString(),
@@ -84,18 +60,4 @@ export function getMonthYears(
   }
 
   return monthYears;
-}
-
-export function getAdjustedYear(date: Date, accurateDates: Boolean = false): number {
-  if (!accurateDates) {
-    return date.getFullYear();
-  }
-
-  const year = date.getFullYear(); 
-
-  if (year < 2025 || (year === 2025 && (date.getMonth() < 1 || (date.getMonth() === 1 && date.getDate() < 28)))) {
-    return year - 14;
-  } else {
-    return year - 13;
-  }
 }

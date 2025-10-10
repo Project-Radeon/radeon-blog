@@ -8,8 +8,6 @@ import { getMonthYears } from "@utils/date";
 const firstDate = await prisma.post.findFirst({
   select: { dateCreated: true },
 });
-
-const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
 ---
 
 <Layout
@@ -29,7 +27,7 @@ const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
   <h2>Archives by Month:</h2>
   <ul>
     {
-        getMonthYears(firstDate?.dateCreated!, adjustDisplayDates).map((date) => (
+        getMonthYears(firstDate?.dateCreated!).map((date) => (
           <li>
             <a href={`/${date.year}/${date.month}`} title={date.formatted} class="date">
               {date.formatted}

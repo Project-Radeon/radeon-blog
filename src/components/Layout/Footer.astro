@@ -3,7 +3,6 @@ import { capitalizeDomainPrefix } from "@utils/url";
 
 const { user } = Astro.locals;
 
-const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
 ---
 
 <footer id="colophon" role="contentinfo">
@@ -17,7 +16,7 @@ const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
                 id="menu-item-6510"
                 class="active menu-item menu-item-type-custom menu-item-object-custom menu-item-6510"
               >
-                <a href={`http://www.${import.meta.env.PUBLIC_WEBSITE_URL}/`}>{adjustDisplayDates ? "ROBLOX.com" : capitalizeDomainPrefix(import.meta.env.PUBLIC_WEBSITE_URL)}</a>
+                <a href={`http://www.${import.meta.env.PUBLIC_WEBSITE_URL}/`}>{capitalizeDomainPrefix(import.meta.env.PUBLIC_WEBSITE_URL)}</a>
               </li>
               <li
                 id="menu-item-6511"
@@ -52,57 +51,11 @@ const adjustDisplayDates = Astro.cookies.get("larp-mode")?.value === "true";
           </div>
         </aside>
       </div>
-
-      <div>
-        <input type="checkbox" name="larp-mode" id="larp-mode" />
-        <label for="larp-mode">Adjust Display Dates</label>
-        <script is:inline>
-          $(document).ready(function () {
-            // Check the cookie to see if LARP mode is enabled
-            let larpModeEnabled = getCookie("larp-mode") === "true";
-
-            $("#larp-mode").attr("checked", larpModeEnabled);
-
-            // Listen for click events on the #larp-mode checkbox
-            $("#larp-mode").click(function () {
-              let isChecked = $(this).is(":checked");
-
-              // Save the state to a cookie
-              setCookie("larp-mode", isChecked, 30); // Expires in 7 days
-              window.location.reload();
-            });
-
-            // Function to set a cookie
-            function setCookie(name, value, days) {
-              let date = new Date();
-              date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-              let expires = "expires=" + date.toUTCString();
-              document.cookie = name + "=" + value + ";" + expires + ";path=/";
-            }
-
-            // Function to get a cookie
-            function getCookie(name) {
-              let nameEQ = name + "=";
-              let ca = document.cookie.split(";");
-              for (let i = 0; i < ca.length; i++) {
-                let c = ca[i].trim();
-                if (c.indexOf(nameEQ) === 0) {
-                  return c.substring(nameEQ.length, c.length);
-                }
-              }
-              return null;
-            }
-          });
-        </script>
-      </div>
     </div>
-    Roblox Community Blog is powered by
+    Radeon Blog is powered by
     <a
       href="https://github.com/midozen"
       title="Such a cool person and he made this cool website"
-      rel="generator">{adjustDisplayDates ? "WordPress" : "midozen"}</a
-    > and a thousand networked Amigas. All rights reserved {
-      (new Date().getFullYear() - (adjustDisplayDates ? 13 : 0))
-    }.
+      rel="generator">fexlar</a> and a thousand networked Amigas. All rights reserved {new Date().getFullYear()}.
   </div>
 </footer>
