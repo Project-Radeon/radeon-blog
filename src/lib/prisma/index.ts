@@ -8,9 +8,9 @@ export const prisma = new PrismaClient();
 
 export async function getRSSFeed(): Promise<Response> {
   const FEED_CONFIG = {
-    title: "ROBLOX Blog",
+    title: "Radeon Blog",
     siteUrl: import.meta.env.DEV ? "http://localhost:4321" : `http://blog.${import.meta.env.PUBLIC_WEBSITE_URL}`,
-    description: "Free Games at Roblox.com",
+    description: "Free Games at radeon-rr.net",
     language: "en",
   };
 

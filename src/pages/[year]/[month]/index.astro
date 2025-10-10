@@ -31,7 +31,7 @@ const formattedYear = date.getFullYear();
 const { posts, pageCount } = await getPosts({ page: pageNumber, date: { year: yearNum, month: monthNum } });
 ---
 
-<Layout title={`${formattedMonth} > ${formattedYear} > Roblox Blog`} type="archive date">
+<Layout title={`${formattedMonth} > ${formattedYear} > Radeon Blog`} type="archive date">
   {pageNumber > 1 && (
     <Pagination pageNumber={pageNumber} maxPageCount={pageCount} />
   )}
