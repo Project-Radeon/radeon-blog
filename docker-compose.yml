@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  radeon-blog:
+    image: git.zigz.uk/radeonrr/radeon-master-radeon-blog
+    env_file:
+      - .radeonblog.env
+    ports:
+      - "4321:4321"
+    restart: always
