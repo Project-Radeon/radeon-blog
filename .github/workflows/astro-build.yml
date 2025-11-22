@@ -34,8 +34,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            git.zigz.uk/radeonrr/radeon-${{ steps.branch_vars.outputs.lower_branch_name }}-radnet:${{ github.sha }}
-            git.zigz.uk/radeonrr/radeon-${{ steps.branch_vars.outputs.lower_branch_name }}-radnet:latest
+            git.zigz.uk/radeonrr/radeon-${{ steps.branch_vars.outputs.lower_branch_name }}-blog:${{ github.sha }}
+            git.zigz.uk/radeonrr/radeon-${{ steps.branch_vars.outputs.lower_branch_name }}-blog:latest
 
   notify_success:
     needs: build
