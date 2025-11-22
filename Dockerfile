@@ -8,6 +8,10 @@ RUN npm install
 # Copy project now that node_modules is ready
 COPY . .
 
+# Define public env variables
+ENV PUBLIC_WEBSITE_URL=epicquest.live
+ENV PUBLIC_IMG_URL=https://img.epicquest.live
+
 # Generate Prisma client inside container
 RUN npx prisma generate
 
