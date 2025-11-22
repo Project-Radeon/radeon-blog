@@ -1,4 +1,6 @@
 export function capitalizeDomainPrefix(domain: string): string {
+  domain = domain || "epicquest.live";
+  
   const parts = domain.split(".");
 
   return parts[0].toUpperCase() + "." + parts[1];
